@@ -41,7 +41,7 @@ const Users = ({ deleteId, updateId, replaceId, users, AddUsers, CreateUser }) =
       <div style={{ display: 'flex', gap: 10, flexDirection: "row", justifyContent: 'center', alignItems: 'center', flexWrap: "wrap" }}>
         {
           users.map((item, id) => (
-            <div key={id} style={{ padding: 10, width: 250, backgroundColor: 'lightblue', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+            <div key={id} style={{borderRadius:10, padding: 10, width: 250, backgroundColor: 'lightblue', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
               <p>ID: {item.id}</p>
               <p>Name: {item.name}</p>
               <p>UserName: {item.username}</p>

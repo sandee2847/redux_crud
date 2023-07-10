@@ -19,22 +19,36 @@ const userData = (state = initialState, action) => {
             return state
         case Delete_User:
             const deleteUser = state.users.filter((item) => item.id !== action.payload);
-            const findUser=state.users.find((item)=>item.id===action.payload);
-            if(findUser){
+            const findUser_Delete = state.users.find((item) => item.id === action.payload);
+            console.log("data", findUser_Delete);
+            if (findUser_Delete) {
                 return { users: state.users = deleteUser };
             }
-            else{
+            else {
                 alert("User ID Not Found, Enter Valid User ID!");
             }
             return state;
         case Update_User:
             const updatedUserIndex = state.users.findIndex((item) => item.id === action.payload.id)
-            state.users[updatedUserIndex].name = action.payload.name;
+            const findUser_Update = state.users.find((item) => item.id === action.payload.id);
+            console.log("...", findUser_Update)
+            if (findUser_Update) {
+                state.users[updatedUserIndex].name = action.payload.name;
+            }
+            else {
+                alert("User ID Not Found, Enter Valid User ID!");
+            }
             return state;
         case Replace_User:
             const replaceUser = state.users.findIndex((item) => item.id === action.payload.id)
-            state.users[replaceUser] = action.payload.replacedData;
-            return state
+            const findUser_Replace = state.users.find((item) => item.id === action.payload.id);
+            if (findUser_Replace) {
+                state.users[replaceUser] = action.payload.replacedData;
+            }
+            else {
+                alert("User ID Not Found, Enter Valid User ID!");
+            }
+            return state;
         default:
             return state;
     }
